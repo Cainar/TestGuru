@@ -5,7 +5,7 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version 2.7.0
 
 * System dependencies
 
@@ -21,4 +21,9 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+* List of entities:
+	- User, who answers a test;
+	- Admin, who creates and manages tests;
+	- Test - a block of questions;
+	- Question - a question with variants of answers.
+
