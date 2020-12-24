@@ -1,2 +1,7 @@
 # the version of my app
-VERSION = '0.1.0'
+module App_version
+  def version
+	attr_reader :version
+	@version = '0.1.0'
+  end
+end
