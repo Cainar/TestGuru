@@ -1,5 +1,4 @@
 require_relative "boot"
-require_relative "initializers/version"
 
 require "rails/all"
 
@@ -8,7 +7,6 @@ require "rails/all"
 Bundler.require(*Rails.groups)
 
 module TestGuru
-  extend App_version
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
