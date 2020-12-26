@@ -1,0 +1,2 @@
+      invoke  active_record
+      create    db/migrate/20201225214133_add_change_column_null_to_questions.rb
