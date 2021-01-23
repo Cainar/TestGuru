@@ -6,21 +6,22 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-users = User.create([
-	{ 
+# опробывал разные способы создания связанных записей, через id и без
+kaynaryan_alexey = User.create(
 		name: 'Kaynaryan Alexey', 
 		login: 'taske'
-	},
-	{ 
+)
+
+alexey = User.create( 
 		name: 'Alexey', 
 		login: 'master', 
 		is_admin: true
-	},
-	{
+)
+
+test_user = User.create(
 		name: 'Test',
 		login: 'test'
-	}
-])
+)
 
 categories = Category.create([
 	{
@@ -34,65 +35,66 @@ categories = Category.create([
 	}
 ])
 
+# проверяю разные способы
 tests = Test.create([
 	{ 
 		title: 'Ruby basics', 
 		level: 1,
-		category_id: 1
+		category: categories[0]
 	},
 	{
 		title: 'Rails basics',
 		level: 2,
-		category_id: 2
+		category_id: categories[1].id
 	},
 	{
 		title: 'Rails advanced',
 		level: 3,
-		category_id: 2
+		category: categories[1]
 	},
 	{
 		title: 'SQL basics',
 		level: 2,
-		category_id: 3
+		category_id: categories[2].id
 	}
 ])
 
 questions = Question.create([
 	{
 		body: 'В каком варианте вы получите число без пропуска строки от пользователя?',
-		test_id: 1
+		test: tests[0]
 	},
 	{
 		body: 'Где записана сокращенная форма кода "x = x / 3"',
-		test_id: 1
+		test: tests[0]
 	},
 	{
 		body: "Сработает ли данный код?\nprint(\"Введите имя: \")\nname = gets\nputs(\"Имя: \" + name)",
-		test_id: 1
+		test: tests[0]
 	},
 	{
 		body: 'Где указана пустая переменная (без значения)?',
-		test_id: 1
+		test: tests[0]
 	},
 	{
 		body: 'Как называется самый популярный фреймворк языка Ruby для веба?',
-		test_id: 2
+		test: tests[1]
 	},
 	{
 		body: 'Что не является элементом MVC?',
-		test_id: 2
+		test: tests[1]
 	},
 	{
 		body: 'Какой командой запускается локальный веб-сервер',
-		test_id: 3
+		test: tests[2]
 	},
 	{
 		body: 'Как откатить миграции',
-		test_id: 3
+		test: tests[2]
 	},
 	{
 		body: 'Чем различаются запросы с UNION и UNION ALL?',
-		test_id: 4
+		test: tests[3]
 	},
 	{
 		body: "Какой тип отношения между таблицами «Товары» и «Заказы»?\n
@@ -101,7 +103,7 @@ questions = Question.create([
                \tЗаказы – содержит номер заказа, комментарий, дату доставки, покупателя (который сделал заказ) и т.д.;\n
                \tТовары – id товара, наименование, цена, остатки и т.п.;\n
                \tЗаказанные товары – хранит информацию о заказанных товарах (заказ, товар, количество).",
-		test_id: 4
+		test: tests[3]
 	},
 	{
 		body: "Какой тип отношения между таблицами «Покупатели» и «Заказы»?\n
@@ -110,7 +112,7 @@ questions = Question.create([
 			   \tЗаказы – содержит номер заказа, комментарий, дату доставки, покупателя (который сделал заказ) и т.д.;\n
 			   \tТовары – id товара, наименование, цена, остатки и т.п.;\n
 			   \tЗаказанные товары – хранит информацию о заказанных товарах (заказ, товар, количество).",
-		test_id: 4
+		test: tests[3]
 	}
 ])
 
@@ -118,245 +120,245 @@ answers = Answer.create([
 	{
 		body: 'num = gets.chomp().to_i',
 		correct: true,
-		question_id: 1
+		question: questions[0]
 	},
 	{
 		body: 'num = gets.chomp()',
-		question_id: 1
+		question: questions[0]
 	},
 	{
 		body: 'num = chomp().to_i',
-		question_id: 1
+		question: questions[0]
 	},
 	{
 		body: 'num = gets.to_i',
-		question_id: 1
+		question: questions[0]
 	},
 	{
 		body: 'num = gets',
-		question_id: 1
+		question: questions[0]
 	},
 	{
 		body: 'x/3',
-		question_id: 2
+		question: questions[1]
 	},
 	{
 		body: 'Нет сокращенной формы',
-		question_id: 2
+		question: questions[1]
 	},
 	{
 		body: 'x = / 3',
-		question_id: 2
+		question: questions[1]
 	},
 	{
 		body: 'x /= 3',
 		correct: true,
-		question_id: 2
+		question: questions[1]
 	},
 	{
 		body: 'Необходимо дописать name.to_s при выводе информации',
-		question_id: 3
+		question: questions[2]
 	},
 	{
 		body: 'Код сработает в любом случае',
 		correct: true,
-		question_id: 3
+		question: questions[2]
 	},
 	{
 		body: 'Необходимо дописать gets.chomp()',
-		question_id: 3
+		question: questions[2]
 	},
 	{
 		body: 'Код сработает только если введут строку, а не число',
-		question_id: 3
+		question: questions[2]
 	},
 	{
 		body: 'some',
-		question_id: 4
+		question: questions[3]
 	},
 	{
 		body: 'some = 0',
-		question_id: 4
+		question: questions[3]
 	},
 	{
 		body: 'some = ""',
-		question_id: 4
+		question: questions[3]
 	},
 	{
 		body: 'some = nil',
 		correct: true,
-		question_id: 4
+		question: questions[3]
 	},
 	{
 		body: 'Все варианты',
-		question_id: 4
+		question: questions[3]
 	},
 	{
 		body: 'git init',
-		question_id: 5
+		question: questions[4]
 	},
 	{
 		body: 'server start',
-		question_id: 5
+		question: questions[4]
 	},
 	{
 		body: 'rails s',
 		correct: true,
-		question_id: 5
+		question: questions[4]
 	},
 	{
 		body: 'rails c',
-		question_id: 5
+		question: questions[4]
 	},
 	{
 		body: 'rails new',
-		question_id: 5
+		question: questions[4]
 	},
 	{
 		body: 'модель',
-		question_id: 6
+		question: questions[5]
 	},
 	{
 		body: 'представление',
-		question_id: 6
+		question: questions[5]
 	},
 	{
 		body: 'контроллер',
-		question_id: 6
+		question: questions[5]
 	},
 	{
 		body: 'маршрут',
 		correct: true,
-		question_id: 6
+		question: questions[5]
 	},
 	{
 		body: 'запрос',
 		correct: true,
-		question_id: 6
+		question: questions[5]
 	},
 	{
 		body: 'rails destroy migrate',
-		question_id: 7
+		question: questions[6]
 	},
 	{
 		body: 'rails generate viewer',
-		question_id: 7
+		question: questions[6]
 	},
 	{
 		body: 'rake db:migrate',
-		question_id: 7
+		question: questions[6]
 	},
 	{
 		body: 'rake db:rollback',
 		correct: true,
-		question_id: 7
+		question: questions[6]
 	},
 	{
 		body: 'rails g',
-		question_id: 7
+		question: questions[6]
 	},
 	{
 		body: 'Ruby On Rails',
 		correct: true,
-		question_id: 8
+		question: questions[7]
 	},
 	{
 		body: 'Ruby Web',
-		question_id: 8
+		question: questions[7]
 	},
 	{
 		body: 'Rails',
-		question_id: 8
+		question: questions[7]
 	},
 	{
 		body: 'Ruby Framework',
-		question_id: 8
+		question: questions[7]
 	},
 	{
 		body: 'UNION соединить таблицы по принципу внутреннего соединения, но при условии, что строки не будут полностью совпадать. UNION ALL объединит каждую строку из таблицы слева с каждой строкой из таблицы справа',
-		question_id: 9
+		question: questions[8]
 	},
 	{
 		body: 'UNION объединяет наборы строк, полностью исключая те строки, которые дублируются, т.е. строка из первого набора, которая есть во втором наборе, вообще не будет выдана ни из одного набора. UNION ALL объединяет наборы с сохранением всех строк',
-		question_id: 9
+		question: questions[8]
 	},
 	{
 		body: 'UNION объединяет наборы строк, исключая дубли, т.е. каждая строка после объединения будет уникальной. UNION ALL объединяет наборы с сохранением всех строк',
 		correct: true,
-		question_id: 9
+		question: questions[8]
 	},
 	{
 		body: 'Различия только в написании операции. UNION - это короткий стиль написания UNION ALL',
-		question_id: 9
+		question: questions[8]
 	},
 	{
 		body: 'Один к одному',
-		question_id: 10
+		question: questions[9]
 	},
 	{
 		body: 'Один ко многим',
-		question_id: 10
+		question: questions[9]
 	},
 	{
 		body: 'Многие ко многим',
-		question_id: 10
+		question: questions[9]
 	},
 	{
 		body: 'Таблицы никак не связаны',
 		correct: true,
-		question_id: 10
+		question: questions[9]
 	},
 	{
 		body: 'Один к одному',
-		question_id: 11
+		question: questions[10]
 	},
 	{
 		body: 'Один ко многим',
 		correct: true,
-		question_id: 11
+		question: questions[10]
 	},
 	{
 		body: 'Многие ко многим',
-		question_id: 11
+		question: questions[10]
 	},
 	{
 		body: 'Таблицы никак не связаны',
-		question_id: 11
+		question: questions[10]
 	}
 ])
 
 user_histories = UserHistory.create([
 	{
-		user_id: 1,
-		test_id: 1,
+		user: kaynaryan_alexey,
+		test_id: tests[0].id,
 		complete: true
 	},
 	{
-		user_id: 1,
-		test_id: 2,
+		user: kaynaryan_alexey,
+		test: tests[1],
 		complete: true
 	},
 	{
-		user_id: 1,
-		test_id: 3,
+		user: kaynaryan_alexey,
+		test: tests[2],
 		complete: true
 	},
 	{
-		user_id: 1,
-		test_id: 4
+		user: kaynaryan_alexey,
+		test: tests[3]
 	},
 	{
-		user_id: 3,
-		test_id: 1
+		user_id: test_user.id,
+		test: tests[0]
 	},
 	{
-		user_id: 3,
-		test_id: 2,
+		user: test_user,
+		test: tests[1],
 		complete: true
 	},
 	{
-		user_id: 3,
-		test_id: 3,
+		user: test_user,
+		test: tests[2],
 		complete: true
 	}
 ])
