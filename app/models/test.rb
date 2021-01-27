@@ -1,6 +1,8 @@
 class Test < ApplicationRecord
   belongs_to :category
-  has_many :user_history
+  has_many :user_histories
+  has_many :users, through: :user_histories
+  has_many :questions
 
   def self.list_tests_by_category(category)
   	self.left_joins(:category)
