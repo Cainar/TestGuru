@@ -39,23 +39,26 @@ categories = Category.create([
 tests = Test.create([
 	{ 
 		title: 'Ruby basics', 
-		level: 1,
-		category: categories[0]
+		category: categories[0],
+		author_id: alexey.id
 	},
 	{
 		title: 'Rails basics',
 		level: 2,
-		category_id: categories[1].id
+		category_id: categories[1].id,
+		author_id: alexey.id
 	},
 	{
 		title: 'Rails advanced',
 		level: 3,
-		category: categories[1]
+		category: categories[1],
+		author_id: alexey.id
 	},
 	{
 		title: 'SQL basics',
 		level: 2,
-		category_id: categories[2].id
+		category_id: categories[2].id,
+		author_id: alexey.id
 	}
 ])
 
