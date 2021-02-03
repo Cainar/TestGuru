@@ -7,20 +7,19 @@ class Test < ApplicationRecord
 
   validates :title, presence: true,
                     uniqueness: { scope: :level }
-  validates_numericality_of :level, only_integer: true,
-                                    greater_than: 0 
+  validates :level, numericality: { only_integer: true,
+                                    greater_than: 0 }
 
+  def self.list_tests_by_category (category)
+      by_category(category).order(title: :desc).pluck(:title) 
+  end
 
-
-  scope :list_tests_by_category, ->(category) { 
-      left_joins(:category)
-      .where('categories.title = ?', category)
-      .order(title: :desc)
-      .pluck(:title) 
+  scope :by_category, ->(category) { 
+    left_joins(:category).where('categories.title = ?', category) 
   } 
-  scope :by_level, ->(level) { where('level = ?', level) }
+  scope :by_level, ->(level) { where(level: level) }
   # скоупы по уровням сложности
-  scope :easy, -> { where(level: 0..1) }
-  scope :medium, -> { where(level: 2..4) }
-  scope :hard, -> { where(level: 5..Float::INFINITY) }
+  scope :easy, -> { by_level(0..1) }
+  scope :medium, -> { by_level(2..4) }
+  scope :hard, -> { by_level(5..Float::INFINITY) }
 end

@@ -61,7 +61,7 @@ tests = alexey.created_tests.create([
 	}
 ])
 
-questions_array = [
+questions = Question.create ([
 	{
 		body: 'В каком варианте вы получите число без пропуска строки от пользователя?',
 		test: tests[0]
@@ -116,14 +116,9 @@ questions_array = [
 			   \tЗаказанные товары – хранит информацию о заказанных товарах (заказ, товар, количество).",
 		test: tests[3]
 	}
-]
+])
 
-# создаю массив вопросов, нужен для создания ответов, связь ответа с вопросом обязательна, 
-# иначе ошибка при сохранении
-questions = []
-questions_array.each { |question| questions << Question.new(question) }
-
-answers_array = [
+answers = Answer.create ([
 	{
 		body: 'num = gets.chomp().to_i',
 		correct: true,
@@ -312,19 +307,7 @@ answers_array = [
 		body: 'Таблицы никак не связаны',
 		question: questions[10]
 	}
-]
-
-# создаю массив с вопросами
-answers = []
-answers_array.each { |answer| answers << Answer.new(answer) }
-
-# сохраняю  записи в БД, у вопроса обязательно должен быть хотябы 1 ответ, но не больше 4.
-questions.each do |question|
-	answers.each do |answer|
-		question.answers << answer if question == answer.question
-	end
-	question.save
-end
+])
 
 user_histories = UserHistory.create([
 	{
