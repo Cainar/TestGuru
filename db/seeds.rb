@@ -9,18 +9,21 @@
 # опробывал разные способы создания связанных записей, через id и без
 kaynaryan_alexey = User.create(
 		name: 'Kaynaryan Alexey', 
-		login: 'taske'
+		login: 'taske',
+		email: 'kay@mail.ru'
 )
 
 alexey = User.create( 
 		name: 'Alexey', 
 		login: 'master', 
-		is_admin: true
+		is_admin: true,
+		email: 'alex@gmail.com'
 )
 
 test_user = User.create(
 		name: 'Test',
-		login: 'test'
+		login: 'test',
+		email: 'test@test.com'
 )
 
 categories = Category.create([
@@ -58,7 +61,7 @@ tests = alexey.created_tests.create([
 	}
 ])
 
-questions = Question.create([
+questions_array = [
 	{
 		body: 'В каком варианте вы получите число без пропуска строки от пользователя?',
 		test: tests[0]
@@ -113,9 +116,14 @@ questions = Question.create([
 			   \tЗаказанные товары – хранит информацию о заказанных товарах (заказ, товар, количество).",
 		test: tests[3]
 	}
-])
+]
 
-answers = Answer.create([
+# создаю массив вопросов, нужен для создания ответов, связь ответа с вопросом обязательна, 
+# иначе ошибка при сохранении
+questions = []
+questions_array.each { |question| questions << Question.new(question) }
+
+answers_array = [
 	{
 		body: 'num = gets.chomp().to_i',
 		correct: true,
@@ -131,10 +139,6 @@ answers = Answer.create([
 	},
 	{
 		body: 'num = gets.to_i',
-		question: questions[0]
-	},
-	{
-		body: 'num = gets',
 		question: questions[0]
 	},
 	{
@@ -189,10 +193,6 @@ answers = Answer.create([
 		question: questions[3]
 	},
 	{
-		body: 'Все варианты',
-		question: questions[3]
-	},
-	{
 		body: 'git init',
 		question: questions[4]
 	},
@@ -210,19 +210,11 @@ answers = Answer.create([
 		question: questions[4]
 	},
 	{
-		body: 'rails new',
-		question: questions[4]
-	},
-	{
 		body: 'модель',
 		question: questions[5]
 	},
 	{
 		body: 'представление',
-		question: questions[5]
-	},
-	{
-		body: 'контроллер',
 		question: questions[5]
 	},
 	{
@@ -250,10 +242,6 @@ answers = Answer.create([
 	{
 		body: 'rake db:rollback',
 		correct: true,
-		question: questions[6]
-	},
-	{
-		body: 'rails g',
 		question: questions[6]
 	},
 	{
@@ -324,7 +312,19 @@ answers = Answer.create([
 		body: 'Таблицы никак не связаны',
 		question: questions[10]
 	}
-])
+]
+
+# создаю массив с вопросами
+answers = []
+answers_array.each { |answer| answers << Answer.new(answer) }
+
+# сохраняю  записи в БД, у вопроса обязательно должен быть хотябы 1 ответ, но не больше 4.
+questions.each do |question|
+	answers.each do |answer|
+		question.answers << answer if question == answer.question
+	end
+	question.save
+end
 
 user_histories = UserHistory.create([
 	{
