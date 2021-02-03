@@ -1,5 +1,7 @@
 class AddForeignKeyAuthorIdToTest < ActiveRecord::Migration[6.1]
   def change
-  	add_reference :tests, :author, foreign_key: { to_table: :users }
+  	add_column :tests, :author_id, :integer, default: nil, null: false
+  	add_index :tests, :author_id
+    add_foreign_key :tests, :users, column: :author_id
   end
 end
