@@ -1,6 +1,8 @@
 class QuestionsController < ApplicationController
 	before_action :find_test
 
+	rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
+
 	def index
 		render plain: @test.questions.pluck(:id, :body)
 	end
@@ -36,5 +38,9 @@ class QuestionsController < ApplicationController
 
 	def find_test
 		@test = Test.find(params[:test_id])
+	end
+
+	def rescue_with_question_not_found
+		render plain: 'Question not found'
 	end
 end
