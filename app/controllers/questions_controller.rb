@@ -1,20 +1,15 @@
 class QuestionsController < ApplicationController
   before_action :find_test, only: %i[create index]
 
-  # => rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
+  rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
   def index
     render plain: @test.questions.pluck(:id, :body)
   end
 
   def show
-    if @test.present?
-      @question = @test.questions.find(params[:id])
-      render plain: @question.inspect
-    else
-      @question = Question.find(params[:id])
-      render plain: @question.inspect
-    end
+    @question = Question.find(params[:id])
+    render plain: @question.inspect 
   end
 
   def new
@@ -25,10 +20,12 @@ class QuestionsController < ApplicationController
     # result = ["Class: #{params.class}, Parameters: #{params.inspect}"]
     #
     # render plain: result.join("\n")
-
     @question = @test.questions.create(question_params)
-
-    render plain: @question.inspect
+    unless @question.new_record?
+      render plain: @question.inspect
+    else
+      render plain: "Question was not created, #{@question.errors.full_messages}"
+    end
   end
 
   def destroy
@@ -38,7 +35,7 @@ class QuestionsController < ApplicationController
   private
 
   def question_params
-    params.require(:question).permit(:body)
+    params.require(:question).permit([:body])
   end
 
   def find_test
