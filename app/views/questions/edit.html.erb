@@ -1,5 +1,4 @@
-<h1><%= @question.test.title %></h1>
-<h2>Edit question №<%= @question.id %></h2>
+<h1><%= question_header(@question.test, action_name) %></h1>
 
 <%= render 'form' %>
 

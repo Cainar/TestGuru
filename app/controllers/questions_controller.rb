@@ -17,6 +17,7 @@ class QuestionsController < ApplicationController
 
   def edit
     @question = Question.find(params[:id])
+    logger.info("logloglog #{action_name.class}")
   end
 
   def create

@@ -1,16 +1,16 @@
-
-<p><%= Time.now.year %></p>
-<p><%= TestGuru.author %></p>
-<%= 
-  link_to "#{TestGuru.title}", 
-  'https://github.com/Cainar/TestGuru.git', 
-  target: :_blank 
-%>
+<hr>
+<p><%= current_year %></p>
+<p><%= TestGuru.author[:name] %></p>
+<%= link_to "#{TestGuru.title}", 
+            github_url(TestGuru.author[:username], TestGuru.title), 
+            target: :_blank %>
 <p>
-  Приложение предназначено для создания,<br> управления и выполнения различных тестов
+  Приложение предназначено для создания,<br>
+  управления и выполнения различных тестов
 </p>
 <%= 
   link_to "Учебный проект в онлайн-школе Thinknetica", 
   'http://thinknetica.com/', 
   target: :_blank 
 %>
+<hr>

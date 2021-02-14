@@ -5,7 +5,10 @@ module TestGuru
   end
 
   def self.author
-    'Alexey Kaynaryan'
+    {
+      name: 'Alexey Kaynaryan',
+      username: 'Cainar'
+    }
   end
 
   def self.title
