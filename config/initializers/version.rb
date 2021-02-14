@@ -7,4 +7,8 @@ module TestGuru
   def self.author
     'Alexey Kaynaryan'
   end
+
+  def self.title
+    'TestGuru'
+  end
 end
