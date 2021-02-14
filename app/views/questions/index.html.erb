@@ -1,0 +1,16 @@
+<h1><%= @test.title %></h1>
+
+<p>
+  <%= link_to 'New question', new_test_question_path %>
+</p>
+
+<% if @test.present? %>
+  <table width = "33.3%">
+    <tr>
+      <th>Question</th>
+      <th colspan="3">Actions</th>
+    </tr>
+
+    <%= render @test.questions %>
+  </table>
+<% end %>
