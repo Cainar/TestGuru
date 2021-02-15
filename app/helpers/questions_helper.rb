@@ -1,7 +1,9 @@
 module QuestionsHelper
-  QUESTION_HEADERS = { 'new' => 'Create new', 'edit' => 'Edit' }.freeze
-
-  def question_header(test, action_name)
-    "#{QUESTION_HEADERS[action_name] || 'Undefined action with'} \"#{test.title}\" question"
+  def question_header(question)
+    if question.persisted?
+      "Edit \"#{question.test.title}\" #{controller_name.singularize}"
+    else
+      "Create new \"#{question.test.title}\" #{controller_name.singularize}"
+    end
   end
 end

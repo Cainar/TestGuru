@@ -1,9 +1,7 @@
 <hr>
 <p><%= current_year %></p>
 <p><%= TestGuru.author[:name] %></p>
-<%= link_to "#{TestGuru.title}", 
-            github_url(TestGuru.author[:username], TestGuru.title), 
-            target: :_blank %>
+<%= github_url(TestGuru.author[:username], TestGuru.title) %>
 <p>
   Приложение предназначено для создания,<br>
   управления и выполнения различных тестов
