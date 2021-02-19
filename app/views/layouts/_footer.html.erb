@@ -1,0 +1,14 @@
+<hr>
+<p><%= current_year %></p>
+<p><%= TestGuru.author[:name] %></p>
+<%= github_url(TestGuru.author[:username], TestGuru.title) %>
+<p>
+  Приложение предназначено для создания,<br>
+  управления и выполнения различных тестов
+</p>
+<%= 
+  link_to "Учебный проект в онлайн-школе Thinknetica", 
+  'http://thinknetica.com/', 
+  target: :_blank 
+%>
+<hr>

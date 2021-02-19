@@ -1,35 +1,47 @@
 class QuestionsController < ApplicationController
-  before_action :find_test, only: %i[create index]
+  before_action :find_test, only: %i[create index new]
+  before_action :find_question, only: %i[show edit update destroy]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
   def index
-    render plain: @test.questions.pluck(:id, :body)
+
   end
 
   def show
-    @question = Question.find(params[:id])
-    render plain: @question.inspect 
+    
   end
 
   def new
+    @question = @test.questions.new
+  end
+
+  def edit
     
   end
 
   def create
-    # result = ["Class: #{params.class}, Parameters: #{params.inspect}"]
-    #
-    # render plain: result.join("\n")
-    @question = @test.questions.create(question_params)
-    unless @question.new_record?
-      render plain: @question.inspect
+    @question = @test.questions.new(question_params)
+
+    if @question.save 
+      redirect_to @question
     else
-      render plain: "Question was not created, #{@question.errors.full_messages}"
+      render :new
+    end
+  end
+
+  def update
+    loger.info("#{action_name} log")
+    if @question.update(question_params)
+      redirect_to @question
+    else
+      render :edit
     end
   end
 
   def destroy
-
+    @question.destroy
+    redirect_to test_questions_path(@question.test)
   end
 
   private
@@ -44,5 +56,9 @@ class QuestionsController < ApplicationController
 
   def rescue_with_question_not_found
     render plain: 'Question not found'
+  end
+
+  def find_question
+    @question = Question.find(params[:id])
   end
 end
