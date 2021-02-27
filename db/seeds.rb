@@ -309,41 +309,41 @@ answers = Answer.create ([
 	}
 ])
 
-user_histories = UserHistory.create([
-	{
-		user: kaynaryan_alexey,
-		test_id: tests[0].id,
-		complete: true
-	},
-	{
-		user: kaynaryan_alexey,
-		test: tests[1],
-		complete: true
-	},
-	{
-		user: kaynaryan_alexey,
-		test: tests[2],
-		complete: true
-	},
-	{
-		user: kaynaryan_alexey,
-		test: tests[3]
-	},
-	{
-		user_id: test_user.id,
-		test: tests[0]
-	},
-	{
-		user: test_user,
-		test: tests[1],
-		complete: true
-	},
-	{
-		user: test_user,
-		test: tests[2],
-		complete: true
-	}
-])
+#user_histories = UserHistory.create([
+#	{
+#		user: kaynaryan_alexey,
+#		test_id: tests[0].id,
+#		complete: true
+#	},
+#	{
+#		user: kaynaryan_alexey,
+#		test: tests[1],
+#		complete: true
+#	},
+#	{
+#		user: kaynaryan_alexey,
+#		test: tests[2],
+#		complete: true
+#	},
+#	{
+#		user: kaynaryan_alexey,
+#		test: tests[3]
+#	},
+#	{
+#		user_id: test_user.id,
+#		test: tests[0]
+#	},
+#	{
+#		user: test_user,
+#		test: tests[1],
+#		complete: true
+#	},
+#	{
+#		user: test_user,
+#		test: tests[2],
+#		complete: true
+#	}
+#])
 
 
 
