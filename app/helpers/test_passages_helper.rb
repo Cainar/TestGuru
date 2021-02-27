@@ -1,9 +1,9 @@
 module TestPassagesHelper
   def result_message(test_passage)
     if success_rate(test_passage) < 85
-      'was failed'
+      'failed'
     else
-      'was completed'
+      'completed'
     end
   end
 
