@@ -18,6 +18,10 @@ class TestPassage < ApplicationRecord
     save!
   end
 
+  def question_number
+    test.questions.order(:id).find_index(current_question) + 1
+  end
+
   private
 
   def before_validation_set_first_question
