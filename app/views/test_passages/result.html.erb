@@ -1,2 +1,6 @@
-<h1>The <%= @test_passage.test.title %> Test <%= result_message(@test_passage) %>!</h1>
-<h2>Your result is <%= success_rate(@test_passage) %></h2>
+<h1>The <%= @test_passage.test.title %> Test was <%= result_message(@test_passage) %>!</h1>
+<h2>Your result is <span id="<%= result_message(@test_passage) %>"><%= success_rate(@test_passage) %>%</span></h2>
+
+<%= link_to 'Back', tests_path %>
+
+
