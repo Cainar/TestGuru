@@ -31,7 +31,6 @@ class QuestionsController < ApplicationController
   end
 
   def update
-    loger.info("#{action_name} log")
     if @question.update(question_params)
       redirect_to @question
     else
@@ -41,7 +40,7 @@ class QuestionsController < ApplicationController
 
   def destroy
     @question.destroy
-    redirect_to test_questions_path(@question.test)
+    redirect_to test_path(@question.test)
   end
 
   private

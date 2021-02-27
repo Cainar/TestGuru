@@ -1,9 +1,12 @@
 class Test < ApplicationRecord
   belongs_to :category
-  has_many :user_histories
-  has_many :users, through: :user_histories
+  #has_many :user_histories
+  #has_many :users, through: :user_histories
   has_many :questions
   belongs_to :author, class_name: 'User'
+
+  has_many :test_passages
+  has_many :users, through: :test_passages
 
   validates :title, presence: true,
                     uniqueness: { scope: :level }
