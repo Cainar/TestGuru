@@ -189,20 +189,20 @@ answers = Answer.create ([
 	},
 	{
 		body: 'git init',
-		question: questions[4]
+		question: questions[6]
 	},
 	{
 		body: 'server start',
-		question: questions[4]
+		question: questions[6]
 	},
 	{
 		body: 'rails s',
 		correct: true,
-		question: questions[4]
+		question: questions[6]
 	},
 	{
 		body: 'rails c',
-		question: questions[4]
+		question: questions[6]
 	},
 	{
 		body: 'модель',
@@ -224,37 +224,37 @@ answers = Answer.create ([
 	},
 	{
 		body: 'rails destroy migrate',
-		question: questions[6]
+		question: questions[7]
 	},
 	{
 		body: 'rails generate viewer',
-		question: questions[6]
+		question: questions[7]
 	},
 	{
 		body: 'rake db:migrate',
-		question: questions[6]
+		question: questions[7]
 	},
 	{
 		body: 'rake db:rollback',
 		correct: true,
-		question: questions[6]
+		question: questions[7]
 	},
 	{
 		body: 'Ruby On Rails',
 		correct: true,
-		question: questions[7]
+		question: questions[4]
 	},
 	{
 		body: 'Ruby Web',
-		question: questions[7]
+		question: questions[4]
 	},
 	{
 		body: 'Rails',
-		question: questions[7]
+		question: questions[4]
 	},
 	{
 		body: 'Ruby Framework',
-		question: questions[7]
+		question: questions[4]
 	},
 	{
 		body: 'UNION соединить таблицы по принципу внутреннего соединения, но при условии, что строки не будут полностью совпадать. UNION ALL объединит каждую строку из таблицы слева с каждой строкой из таблицы справа',

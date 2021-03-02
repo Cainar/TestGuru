@@ -1,13 +1,5 @@
 module TestPassagesHelper
-  def result_message(test_passage)
-    if success_rate(test_passage) < 85
-      'failed'
-    else
-      'completed'
-    end
-  end
-
-  def success_rate(test_passage)
-    (test_passage.correct_questions * 100 / test_passage.test.questions.count).round(1)
+  def success_message (test_passage)  
+    test_passage.success? ? 'completed' : 'failed'
   end
 end
