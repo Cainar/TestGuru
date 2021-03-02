@@ -1,12 +1,11 @@
 class TestPassage < ApplicationRecord
-  attr_writer :pass_rate
-
   belongs_to :user
   belongs_to :test
   belongs_to :current_question, class_name: 'Question', optional: true
 
   before_validation :before_validation_set_first_question, on: :create
-  after_initialize :after_initialize_set_pass_rate
+
+  PASS_RATE = 0.85
 
   def completed?
     current_question.nil?
@@ -25,11 +24,7 @@ class TestPassage < ApplicationRecord
   end
 
   def success?
-    if success_rate < pass_rate
-      false
-    else
-      true
-    end
+    success_rate >= PASS_RATE
   end
 
   def success_rate
@@ -38,14 +33,8 @@ class TestPassage < ApplicationRecord
 
   private
 
-  attr_reader :pass_rate
-
   def before_validation_set_first_question
     self.current_question = test.questions.first if test.present?
-  end
-
-  def after_initialize_set_pass_rate
-    self.pass_rate = 0.85
   end
 
   def correct_answer?(answer_ids)
