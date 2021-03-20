@@ -1,7 +1,6 @@
 require 'digest/sha1'
 
 class User < ApplicationRecord
-  include Auth
 
 	has_many :created_tests, class_name: 'Test', foreign_key: 'author_id'
   has_many :test_passages
