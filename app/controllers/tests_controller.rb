@@ -1,4 +1,5 @@
 class TestsController < ApplicationController
+  skip_before_action :authenticate_user!, only: :index
   before_action :set_test, only: %i[show, edit, update, destroy, start]
   before_action :set_question, only: :show
   before_action :set_user, only: :start
@@ -19,7 +20,7 @@ class TestsController < ApplicationController
   private
 
   def set_user
-    @user = User.first
+    @user = current_user
   end
 
   def set_test
