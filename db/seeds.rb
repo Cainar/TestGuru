@@ -10,20 +10,23 @@
 kaynaryan_alexey = User.create(
 		name: 'Kaynaryan Alexey', 
 		login: 'taske',
-		email: 'kay@mail.ru'
+		email: 'kay@mail.ru',
+    password: 'pass1'
 )
 
 alexey = User.create( 
 		name: 'Alexey', 
 		login: 'master', 
 		is_admin: true,
-		email: 'alex@gmail.com'
+		email: 'alex@gmail.com',
+    password: 'pass2'
 )
 
 test_user = User.create(
 		name: 'Test',
 		login: 'test',
-		email: 'test@test.com'
+		email: 'test@test.com',
+    password: 'pass3'
 )
 
 categories = Category.create([
