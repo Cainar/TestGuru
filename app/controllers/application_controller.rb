@@ -11,8 +11,13 @@ class ApplicationController < ActionController::Base
       redirect_to login_path, alert: 'Are you a Guru? Verify your Email and Password please'
     end
 
-    cookies[:path] = request&.path
-    cookies[:method] = request&.method
+    # куки храним для пользователя, чтобы после аутентификации
+    # он перешел на целевую страницу, куда изначально намеревался попасть
+    # метод храним чтобы определять какой запрос используется,
+    # redirect_to не отправляет POST, используентся gem 'repost'
+    # нужен, если пользователь не залогинился но нажимает Start, для прохождения теста
+    cookies[:user_request_path] = request.path
+    cookies[:user_request_method] = request.method
   end
 
   def current_user
