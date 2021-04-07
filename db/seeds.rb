@@ -7,27 +7,32 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # опробывал разные способы создания связанных записей, через id и без
-kaynaryan_alexey = User.create(
+kaynaryan_alexey = User.new(
   name: 'Kaynaryan Alexey', 
   login: 'taske',
   email: 'kay@mail.ru',
-  password: 'pass1'
+  password: 'A1qwert'
 )
 
-alexey = User.create( 
+alexey = User.new( 
   name: 'Alexey', 
   login: 'master', 
   is_admin: true,
   email: 'alex@gmail.com',
-  password: 'pass2'
+  password: 'A1qwert'
 )
 
-test_user = User.create(
+test_user = User.new(
   name: 'Test',
   login: 'test',
   email: 'test@test.com',
-  password: 'pass3'
+  password: 'A1qwert'
 )
+
+[kaynaryan_alexey, alexey, test_user].each do |user|
+  user.skip_confirmation!
+  user.save!
+end
 
 categories = Category.create([
   {
