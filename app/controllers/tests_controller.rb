@@ -1,8 +1,7 @@
 class TestsController < ApplicationController
-  before_action :authenticate_user!, only: :index
+  before_action :authenticate_user!
   before_action :set_test, only: %i[show, edit, update, destroy, start]
   before_action :set_question, only: :show
-  before_action :current_user, only: :start
 
   def index
     @tests = Test.all
