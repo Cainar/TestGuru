@@ -14,12 +14,14 @@ kaynaryan_alexey = User.new(
   password: 'A1qwert'
 )
 
-alexey = User.new( 
+alexey = Admin.new( 
   name: 'Alexey', 
   login: 'master', 
   is_admin: true,
   email: 'alex@gmail.com',
-  password: 'A1qwert'
+  password: 'A1qwert',
+  first_name: 'Alexey',
+  last_name: 'Kaynaryan'
 )
 
 test_user = User.new(
