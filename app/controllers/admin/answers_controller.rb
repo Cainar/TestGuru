@@ -1,4 +1,4 @@
-class AnswersController < ApplicationController
+class Admin::AnswersController < Admin::BaseController
   before_action :set_answer, only: %i[ show edit update destroy ]
   before_action :find_question, only: %i[ new create ]
 
@@ -21,7 +21,7 @@ class AnswersController < ApplicationController
     @answer = @question.answers.new(answer_params)
 
     if @answer.save
-      redirect_to @answer, notice: 'Answer was successfully created.'
+      redirect_to [:admin, @answer.question], notice: 'Answer was successfully created.'
     else
       render :new
     end
@@ -31,7 +31,7 @@ class AnswersController < ApplicationController
   # PATCH/PUT /answers/1 or /answers/1.json
   def update
     if @answer.update(answer_params)
-      redirect_to @answer
+      redirect_to [:admin, @answer]
     else
       render :edit
     end
@@ -40,7 +40,7 @@ class AnswersController < ApplicationController
   # DELETE /answers/1 or /answers/1.json
   def destroy
     @answer.destroy
-    redirect_to @answer.question
+    redirect_to [:admin, @answer.question]
   end
 
   private
