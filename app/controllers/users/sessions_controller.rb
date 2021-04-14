@@ -19,7 +19,7 @@ class Users::SessionsController < Devise::SessionsController
     self.resource = warden.authenticate!(auth_options)
     set_flash_message! :notice, :sign_in, user: "#{current_user.name} #{current_user.last_name}"
     sign_in(resource_name, resource)
-    current_user.is_a?(Admin) ? respond_with(:admin, location: admin_tests_path) : respond_with(@test, location: root_path)
+    current_user.admin? ? respond_with(:admin, location: admin_tests_path) : respond_with(@test, location: root_path)
   end
 
   # DELETE /resource/sign_out

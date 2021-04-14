@@ -1,5 +1,4 @@
 class Admin::TestsController < Admin::BaseController
-  before_action :set_question, only: :show
   before_action :set_test, only: %i[show edit update destroy start]
 
   def index
@@ -45,10 +44,6 @@ class Admin::TestsController < Admin::BaseController
 
   def set_test
     @test = Test.find(params[:id])
-  end
-
-  def set_question
-    
   end
 
   def new_test_params
