@@ -1,33 +1,105 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at  .
-
 ru:
-  hello: "Привет мир"
+  common:
+      show: "Показать"
+      edit: "Редактировать"
+      delete: "Удалить"
+      next: "Следующий"
+      start: "Начать"
+      back: "Назад"
+      sure: "Вы уверены?"
+      new: "Новый"
+      create: "Создать"
+      actions: "Действия"
+      signup: "Зарегистрироваться"
+      login: "Войти"
+      logout: "Выйти"
+      number: "Вопросов"
+      complete: "Пройден"
+      fail: "Провален"
+
+
+  admin:
+    nav:
+      greeting: "Добро пожаловать"
+      header: "Панель Администратора TestGuru"
+    tests:
+      index:
+        link: "Новый тест"
+        header: "Доступные тесты"
+        number: "Количестdо вопросов"
+    answers:
+      edit:
+
+  layouts:
+    footer:
+      description: "Приложение предназначено для создания, управления и выполнения различных тестов"
+      link: "Учебный проект в онлайн школе Thinknetica"
+    admin:
+      panel: "Панель администратора | TestGuru"
+    navigation:
+      greeting: "Добро пожаловать"
+
+  test_passages:
+    result:
+      was: "Тест был"
+      result: "Ваш результат "
+    show:
+      passing: "Прохождение"
+      of: 'из'
+
+  tests:
+    index:
+      list: 'Список тестов'
+
+  users:
+    sessions:
+      new:
+        enter: "Войти"
+    new:
+      become: "Стать Guru"
+
+  shared:
+    errors:
+      header:
+        few: "обнаружено %{count} ошибки"
+        many: "обнаружено %{count} ошибок"
+        one: "обнаружено %{count} ошибка"
+        other: "обнаружено %{count} ошибки"
+        #
+  errors:
+    # The default format to use in full error messages.
+    format: "%{attribute} %{message}"
+
+    # The values :model, :attribute and :value are always available for interpolation
+    # The value :count is available when applicable. Can be used for pluralization.
+    messages:
+      error: 
+      model_invalid: "Проверка не удалась: %{errors}"
+      inclusion: "нет в в списке"
+      exclusion: "зарезервировано"
+      invalid: "недействительно"
+      confirmation: "не соответствует %{attribute}"
+      accepted: "необходимо принять"
+      empty: "не может быть пустым"
+      blank: "не может быть пустым"
+      present: "должно быть пустым"
+      too_long:
+        one: "слишком длинный (максимум 1 символ)"
+        other: "слишком длинный (максиму %{count} символов)"
+      too_short:
+        one: "слишком короткий (минимум 1 символ)"
+        other: "слишком короткое (минимум %{count} символов)"
+      wrong_length:
+        one: "неправильная длина (должен быть 1 символ)"
+        other: "неправильная длина (должно быть %{count} символов)"
+      not_a_number: "не число"
+      not_an_integer: "должно быть целым числом"
+      greater_than: "должно быть больше, чем %{count}"
+      greater_than_or_equal_to: "должно быть больше или равно %{count}"
+      equal_to: "должно быть равно %{count}"
+      less_than: "должно быть меньше %{count}"
+      less_than_or_equal_to: "должно быть меньше или равно %{count}"
+      other_than: "должно быть отличным от %{count}"
+      odd: "должно быть нечетным"
+      even: "должно быть даже"
+      required: "не выбран(а)"

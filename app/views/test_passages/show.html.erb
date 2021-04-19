@@ -1,6 +1,6 @@
-<h1>Passing the <%= @test_passage.test.title %> Test</h1>
+<h1><%= t('.passing') %> <%= @test_passage.test.title %> <%= Test.model_name.human %></h1>
 
-<h2>Question <%= @test_passage.question_number %> of <%= @test_passage.test.questions.size %></h2>
+<h2><%= Question.model_name.human %> <%= @test_passage.question_number %> <%= t('.of') %> <%= @test_passage.test.questions.size %></h2>
 
 <b>
   <%= @test_passage.current_question.body %>
@@ -14,5 +14,5 @@
     </p>
   <% end %>
 
-  <p><%= form.submit 'Next' %></p>
+  <p><%= form.submit t('common.next') %></p>
 <% end %>

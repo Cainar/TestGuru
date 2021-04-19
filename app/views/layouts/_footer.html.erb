@@ -3,11 +3,10 @@
 <p><%= TestGuru.author[:name] %></p>
 <%= github_url(TestGuru.author[:username], TestGuru.title) %>
 <p>
-  Приложение предназначено для создания,<br>
-  управления и выполнения различных тестов
+  <%= t('.description') %>
 </p>
 <%= 
-  link_to "Учебный проект в онлайн-школе Thinknetica", 
+  link_to t('.link'), 
   'http://thinknetica.com/', 
   target: :_blank 
 %>

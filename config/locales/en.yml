@@ -28,9 +28,109 @@
 #
 # To learn more, please read the Rails Internationalization guide
 # available at https://guides.rubyonrails.org/i18n.html.
-
 en:
-  devise:
+  common:
+      show: "Show"
+      edit: "Edit"
+      delete: "Delete"
+      next: "Next"
+      start: "Start"
+      back: "Back"
+      sure: "Are you sure?"
+      new: "New"
+      create: "Create"
+      actions: "Actions"
+      signup: "SignUp"
+      login: "Log In"
+      logout: "Log Out"
+      number: "Questions"
+      more: "more"
+      complete: "Completed"
+      fail: "Failed"
+
+
+  admin:
+    nav:
+      greeting: "Welcome"
+      header: "TestGuru Admin Panel"
+    tests:
+      index:
+        link: "New test"
+        header: "Tricky Tests"
+        number: "Questions number"
+    answers:
+      edit:
+
+  layouts:
+    footer:
+      description: "The application is designed to create, manage, and run various tests"
+      link: "Educational project in an online school Thinknetica"
+    admin:
+      panel: "Admin Panel | TestGuru"
+    navigation:
+      greeting: "Welcome"
+
+  test_passages:
+    result:
+      was: "Test was"
+      result: "Your result is "
+    show:
+      passing: "Passing the"
+      of: 'of'
+
+  tests:
+    index:
+      list: 'Tests list'
+
+  users:
     sessions:
-      user:
-        sign_in: "Welcome %{user}, you are signed in."
+      new:
+        enter: "Enter the Guru Gates"
+    new:
+      become: "Become a Guru"
+      index:
+        link: "Новый тест"
+        header: "Доступные тесты"
+        number: "Количестdо вопросов"
+
+  shared:
+    errors:
+      header:
+        one: "%{count} error detected"
+        other: "%{count} errors detected"
+
+  errors:
+    # The default format to use in full error messages.
+    format: "%{attribute} %{message}"
+
+    # The values :model, :attribute and :value are always available for interpolation
+    # The value :count is available when applicable. Can be used for pluralization.
+    messages:
+      model_invalid: "Validation failed: %{errors}"
+      inclusion: "is not included in the list"
+      exclusion: "is reserved"
+      invalid: "is invalid"
+      confirmation: "doesn't match %{attribute}"
+      accepted: "must be accepted"
+      empty: "can't be empty"
+      blank: "can't be blank"
+      present: "must be blank"
+      too_long:
+        one: "is too long (maximum is 1 character)"
+        other: "is too long (maximum is %{count} characters)"
+      too_short:
+        one: "is too short (minimum is 1 character)"
+        other: "is too short (minimum is %{count} characters)"
+      wrong_length:
+        one: "is the wrong length (should be 1 character)"
+        other: "is the wrong length (should be %{count} characters)"
+      not_a_number: "is not a number"
+      not_an_integer: "must be an integer"
+      greater_than: "must be greater than %{count}"
+      greater_than_or_equal_to: "must be greater than or equal to %{count}"
+      equal_to: "must be equal to %{count}"
+      less_than: "must be less than %{count}"
+      less_than_or_equal_to: "must be less than or equal to %{count}"
+      other_than: "must be other than %{count}"
+      odd: "must be odd"
+      even: "must be even"
