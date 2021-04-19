@@ -3,18 +3,19 @@
 </h1>
 
 <% if user_signed_in? %>
-  <p class="nav user">Welcome,&nbsp<b><%= current_user.email %></b>&nbspGuru</p>
+  <p class="nav user"><%= t('.greeting') %>,&nbsp<b><%= current_user.email %></b>&nbspGuru</p>
+
   <p class="nav user">
-    <%= link_to 'Log Out', destroy_user_session_path,
+    <%= link_to t('common.login'), new_user_session_path %>
+  </p>
+
+  <p class="nav user">
+    <%= link_to t('common.signup'), new_user_registration_path %>
+  </p>
+  
+  <p class="nav user">
+    <%= link_to t('common.logout'), destroy_user_session_path,
                           method: :delete,
-                          data: { confirm: 'Are you sure?' } %>
+                          data: { confirm: t('common.sure') } %>
   </p>
 <% end %>
-
-<p class="nav user">
-  <%= link_to 'Log In', new_user_session_path %>
-</p>
-
-<p class="nav user">
-  <%= link_to 'Sign Up', new_user_registration_path %>
-</p>

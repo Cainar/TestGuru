@@ -21,11 +21,10 @@ class Admin::AnswersController < Admin::BaseController
     @answer = @question.answers.new(answer_params)
 
     if @answer.save
-      redirect_to [:admin, @answer.question], notice: 'Answer was successfully created.'
+      redirect_to [:admin, @answer.question], notice: t('.success')
     else
       render :new
     end
-
   end
 
   # PATCH/PUT /answers/1 or /answers/1.json

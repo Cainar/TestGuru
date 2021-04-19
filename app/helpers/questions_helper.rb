@@ -1,9 +1,9 @@
 module QuestionsHelper
   def question_header(question)
     if question.persisted?
-      "Edit \"#{question.test.title}\" #{controller_name.singularize}"
+      "#{t('common.edit')} \"#{question.test.title}\" #{Question.model_name.human}"
     else
-      "Create new \"#{question.test.title}\" #{controller_name.singularize}"
+      "#{t('common.create')} #{t('common.new')} \"#{question.test.title}\" #{controller_name.singularize}"
     end
   end
 end
