@@ -1,11 +1,12 @@
 <h1><%= t('.list') %></h1>
 
 <% if @tests.present? %>
-  <table>
-    <tr>
+  <table class="table table-borderless">
+    <thead class="table-light">
       <th><%= Test.human_attribute_name(:title) %></th>
       <th><%= t('common.number') %></th>
-    </tr>
+      <th><%= t('common.actions') %></th>
+    </thead class="table-light">
 
     <%= render @tests %>
   </table>

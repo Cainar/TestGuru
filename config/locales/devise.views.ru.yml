@@ -116,9 +116,12 @@ ru:
     sessions:
       already_signed_out: Выход из системы уже выполнен.
       new:
+        remember_me: Запомнить
         sign_in: Войти
       signed_in: Вход в систему выполнен.
       signed_out: Выход из системы выполнен.
+      user:
+        sign_in: Вы успешно вошли в систему
     shared:
       links:
         back: Назад

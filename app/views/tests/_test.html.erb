@@ -1,5 +1,5 @@
-<tr>
+<%= content_tag :tr, class: "table-#{level_bg(test)}" do -%>
   <td><%= test.title %></td>
   <td align="center"><%= test.questions.count %></td>
   <td><%= button_to t('common.start'), start_test_path(test) %></td>
-</tr>
+<% end -%>
