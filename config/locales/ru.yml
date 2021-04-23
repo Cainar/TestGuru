@@ -54,11 +54,14 @@ ru:
   users:
     sessions:
       new:
+        sign_in: Войти
         enter: "Войти"
     new:
       become: "Стать Guru"
 
   shared:
+    nav:
+      greeting: "Добро пожаловать"
     errors:
       header:
         few: "обнаружено %{count} ошибки"
