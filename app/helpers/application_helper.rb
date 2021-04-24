@@ -1,4 +1,9 @@
 module ApplicationHelper
+  FLASH_TYPES = {
+    notice: 'alert-success',
+    alert: 'alert-danger'
+  }
+
   def current_year
     Time.now.year
   end
@@ -10,13 +15,6 @@ module ApplicationHelper
   end
 
   def flash_style(key)
-    case key
-    when 'notice'
-      'alert-success'
-    when 'alert'
-      'alert-danger'
-    else
-      'alert-info'
-    end
+    FLASH_TYPES[key.to_sym]
   end
 end
