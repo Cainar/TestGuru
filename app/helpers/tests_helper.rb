@@ -1,14 +1,11 @@
 module TestsHelper
+  BACKGROUND_STYLES = {
+    1 => 'info',
+    2 => 'warning',
+    3 => 'danger'
+  }.freeze
+
   def level_bg(test)
-    case test.level
-      when 1
-        "info"
-      when 2
-        "warning"
-      when 3
-        "danger"
-      else
-        "info"
-    end
+    BACKGROUND_STYLES[test.level]
   end
 end
