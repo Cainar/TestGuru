@@ -37,3 +37,8 @@ en:
     tests:
       create:
         success: "Test was successfully created"
+
+  test_passages:
+    gist:
+      success: "Gist was successfully created!"
+      failure: "An error occured while saving gist"
