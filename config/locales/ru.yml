@@ -16,6 +16,7 @@ ru:
       number: "Вопросов"
       complete: "Пройден"
       fail: "Провален"
+      description: Вопрос про %{test_title} из TestGuru
 
 
   admin:

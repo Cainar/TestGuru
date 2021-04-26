@@ -47,6 +47,7 @@ en:
       more: "more"
       complete: "Completed"
       fail: "Failed"
+      description: A question about %{test_title} from TestGuru
 
 
   admin:

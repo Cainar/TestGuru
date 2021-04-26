@@ -37,3 +37,8 @@ ru:
     tests:
       create:
         success: "Тест успешно создан"
+
+  test_passages:
+    gist:
+      success: "Gist успешно сохранен"
+      failure: "Во время сохранения gist произошла ошибка"

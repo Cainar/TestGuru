@@ -3,7 +3,7 @@
 <h2><%= Question.model_name.human %> <%= @test_passage.question_number %> <%= t('.of') %> <%= @test_passage.test.questions.size %></h2>
 
 <b>
-  <%= @test_passage.current_question.body %>
+  <b><%= @test_passage.current_question.body %></b>
 </b>
 
 <%= form_with url: test_passage_path(@test_passage), local: true, method: :put do |form| %>
@@ -14,5 +14,6 @@
     </p>
   <% end %>
 
+  <p><%= link_to t('common.gist_question'), gist_test_passage_path(@test_passage), method: :post %></p>
   <p><%= form.submit t('common.next') %></p>
 <% end %>
