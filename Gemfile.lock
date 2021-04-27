@@ -264,7 +264,6 @@ DEPENDENCIES
   devise (~> 4.0)
   devise-i18n
   devise-russian
-  faraday
   jbuilder (~> 2.7)
   jquery-rails
   letter_opener
