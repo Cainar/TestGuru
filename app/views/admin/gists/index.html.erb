@@ -1,0 +1,9 @@
+<h1><%= t(".gists_list") %></h1>
+
+<% if @gists.present? %>
+  <table>
+    <%= render @gists %>
+  </table>
+<% end %>
+
+<%= link_to t('common.back'), admin_tests_path %>
