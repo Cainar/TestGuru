@@ -1,3 +1,8 @@
 <% flash.each do |key, message| %>
-  <%= content_tag :div, message, class: "alert #{flash_style(key)}", role: "alert" %>
+  <%= 
+    content_tag :div, 
+                message.html_safe, 
+                class: "alert #{flash_style(key)}", 
+                role: "alert" 
+  %>
 <% end %>
