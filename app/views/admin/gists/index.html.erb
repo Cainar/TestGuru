@@ -1,7 +1,7 @@
 <h1><%= t(".gists_list") %></h1>
 
 <% if @gists.present? %>
-  <table>
+  <table class="table table-hover">
     <%= render @gists %>
   </table>
 <% end %>

@@ -22,10 +22,10 @@ class TestPassagesController < ApplicationController
   def gist
     service = GistQuestionService.new(@test_passage.current_question)
     result = service.call
-    Gist.create(question: @test_passage.current_question,
-                user: @test_passage.user,
-                gist_url: result[:url])
-    flash_options = if success?(service)
+    flash_options = if service.success?
+      Gist.create(question: @test_passage.current_question,
+                  user: @test_passage.user,
+                  gist_url: result[:url])
       { notice: "#{helpers.link_to "Gist", result.html_url, target: "_blank"} #{t('.success')}" }
     else
       { alert: t('.failure') }
@@ -36,15 +36,7 @@ class TestPassagesController < ApplicationController
 
   private
 
-  SUCCESS_RESPONSE_STATUS = 201
-
   def set_test_passage
     @test_passage = TestPassage.find(params[:id])
   end
-
-  def success?(service)
-    service.client.last_response_status == SUCCESS_RESPONSE_STATUS ? true : false
-  end
-
-
 end
