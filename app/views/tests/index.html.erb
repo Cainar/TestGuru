@@ -2,11 +2,15 @@
 
 <% if @tests.present? %>
   <table class="table table-borderless">
-    <thead class="table-light">
-      <th><%= Test.human_attribute_name(:title) %></th>
+    <tr>
+      <th class="sort-by-title pointer">
+        <%= Test.human_attribute_name(:title) %>
+        <%= octicon 'arrow-up', class: 'text-success hide' %>
+        <%= octicon 'arrow-down', class: 'text-success hide' %>        
+      </th>
       <th><%= t('common.number') %></th>
       <th><%= t('common.actions') %></th>
-    </thead class="table-light">
+    </tr>
 
     <%= render @tests %>
   </table>
