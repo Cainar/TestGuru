@@ -3,4 +3,5 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require turbolinks
-//= require tree.
+//= require tree .
+
