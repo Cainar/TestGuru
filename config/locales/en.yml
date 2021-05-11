@@ -59,6 +59,8 @@ en:
         link: "New test"
         header: "Tricky Tests"
         number: "Questions number"
+      form_inline: 
+        submit: OK
     answers:
       edit:
 
