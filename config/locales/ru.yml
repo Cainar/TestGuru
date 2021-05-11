@@ -28,6 +28,8 @@ ru:
         link: "Новый тест"
         header: "Доступные тесты"
         number: "Количестdо вопросов"
+      form_inline: 
+        submit: OK
     answers:
       edit:
 

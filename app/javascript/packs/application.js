@@ -9,6 +9,7 @@ import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import 'utilities/input_compare'
 import 'utilities/sorting'
+import 'utilities/form_inline'
 
 Rails.start()
 Turbolinks.start()
