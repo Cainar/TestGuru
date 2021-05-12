@@ -1,5 +1,13 @@
 <h1><%= t('.passing') %> <%= @test_passage.test.title %> <%= Test.model_name.human %></h1>
 
+
+<%= content_tag :div, class: 'progress' do |div| %>
+  <%= content_tag :div, 
+                  nil,
+                  class: 'progress-bar',
+                  data: { percent: @test_passage.progress_percentage} %>
+<% end %>
+
 <h2><%= Question.model_name.human %> <%= @test_passage.question_number %> <%= t('.of') %> <%= @test_passage.test.questions.size %></h2>
 
 <b>
