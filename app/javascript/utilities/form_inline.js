@@ -7,9 +7,10 @@ document.addEventListener('turbolinks:load', function() {
   //   }
   // }
   $('.form-inline-link').on('click', formInLineLinkHandler)
-
+  
   var errors = document.querySelector('.resource-errors')
-  if (errors) {
+  link = document.querySelector('.form-inline-link')
+  if (errors && link) {
     var resourceId = errors.dataset.resourceId
     formInLineHandler(resourceId)
   }
