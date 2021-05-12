@@ -36,6 +36,7 @@ gem 'devise-i18n'
 gem 'railties'
 gem 'rails-i18n'
 gem 'devise-russian'
+gem "i18n-js"
 
 # UI
 gem 'jquery-rails'

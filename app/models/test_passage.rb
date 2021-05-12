@@ -20,7 +20,7 @@ class TestPassage < ApplicationRecord
   end
 
   def question_number
-    test.questions.order(:id).find_index(current_question) + 1
+    question_index + 1
   end
 
   def success?
@@ -29,6 +29,14 @@ class TestPassage < ApplicationRecord
 
   def success_rate
     correct_questions / test.questions.count.to_f
+  end
+
+  def count_questions
+    test.questions.count
+  end
+
+  def progress_percentage
+    "#{progress_percent_calculate}%"
   end
 
   private
@@ -51,5 +59,14 @@ class TestPassage < ApplicationRecord
 
   def next_question
     test.questions.order(:id).where('id > ?', current_question.id).first
+  end
+
+  def progress_percent_calculate
+    percent = (question_index * 1.0 / count_questions) * 100
+    percent.round
+  end
+
+  def question_index
+    test.questions.order(:id).find_index(current_question)
   end
 end
