@@ -1,0 +1,9 @@
+/* line 5, app/assets/stylesheets/test_passages.scss */
+span#failed {
+  color: #ff0000;
+}
+
+/* line 9, app/assets/stylesheets/test_passages.scss */
+span#completed {
+  color: #008000;
+}
