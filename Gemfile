@@ -3,7 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.0'
 
-gem 'dotenv-rails', groups: [:development, :test], require: false
+gem 'dotenv-rails', groups: [:development, :test, :production]
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.1.0'
 
@@ -80,3 +80,5 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # отсебятина, пытаюсь исправить ошибку, так, как объекты модели Test не сохраняются
 gem 'russian', '~> 0.6.0'
+
+gem 'nokogiri'
