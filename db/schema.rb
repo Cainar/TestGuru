@@ -12,8 +12,11 @@
 
 ActiveRecord::Schema.define(version: 2021_04_27_145917) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "answers", force: :cascade do |t|
-    t.text "body", limit: 1000
+    t.text "body"
     t.boolean "correct", default: false
     t.integer "question_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -38,7 +41,7 @@ ActiveRecord::Schema.define(version: 2021_04_27_145917) do
   end
 
   create_table "questions", force: :cascade do |t|
-    t.text "body", limit: 1000, null: false
+    t.text "body", null: false
     t.integer "test_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -60,7 +63,7 @@ ActiveRecord::Schema.define(version: 2021_04_27_145917) do
 
   create_table "tests", force: :cascade do |t|
     t.string "title", limit: 50
-    t.integer "level", limit: 1, default: 1
+    t.integer "level", limit: 2, default: 1
     t.integer "category_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
