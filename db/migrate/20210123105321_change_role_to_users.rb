@@ -1,8 +1,9 @@
 class ChangeRoleToUsers < ActiveRecord::Migration[6.1]
   def up
-  	change_column :users, :role, :boolean, :limit => nil
+  	change_column :users, :role, :boolean, using: 'role::boolean', :limit => nil
   	change_column_default :users, :role, false
   	rename_column :users, :role, :is_admin
+
   end
 
   def down
