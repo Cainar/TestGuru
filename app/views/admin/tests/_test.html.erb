@@ -1,4 +1,4 @@
-<tr>
+  <tr>
   <td class="align-middle">
     <%= content_tag :span, test.title, class: 'test-title', data: { test_id: test.id } %>
     <%= render 'form_inline', test: test == @test ? @test : test %>
@@ -8,7 +8,7 @@
   <td class="align-middle">
     <%= link_to t('common.edit'), 
                 edit_admin_test_path(test),
-                data: { test_id: test.id},
+                data: { test_id: test.id, locale: I18n.locale },
                 class: 'form-inline-link' %>
   </td>
   <td class="align-middle">

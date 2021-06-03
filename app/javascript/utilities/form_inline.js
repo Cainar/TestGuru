@@ -20,6 +20,7 @@ function formInLineLinkHandler(event) {
   event.preventDefault()
 
   var testId = this.dataset.testId
+  I18n.locale = this.dataset.locale
   formInLineHandler(testId)
 }
 
