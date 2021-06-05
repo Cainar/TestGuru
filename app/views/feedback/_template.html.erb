@@ -25,9 +25,11 @@
      <%= label(:message, :message) %>
      <%= form.text_area :message, placeholder: "Message", class: 'form-control', required: true %>
   </div>
-  <br>
-  <%= recaptcha_tags %>
-  <br>
+  <div class="g-recaptcha" data-sitekey="6Lf2kxIbAAAAAAR7cQsWnMEvN3zpFJMAGdiL_1Sj">
+    <br>
+    <%= recaptcha_tags %>
+    <br>
+  </div>
   <%= form.submit :Send %>
 <% end %>
 
