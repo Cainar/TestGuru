@@ -1,7 +1,8 @@
 module ApplicationHelper
   FLASH_TYPES = {
     notice: 'alert-success',
-    alert: 'alert-danger'
+    alert: 'alert-danger',
+    recaptcha_error: 'alert-danger'
   }
 
   def current_year

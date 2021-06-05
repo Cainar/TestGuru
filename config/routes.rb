@@ -27,5 +27,8 @@ Rails.application.routes.draw do
     end
     resources :gists, only: :index
   end
+
+  get 'feedback', to: 'feedback#landing'
+  post 'feedback', to: 'feedback#create'
 end
 

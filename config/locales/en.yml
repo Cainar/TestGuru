@@ -68,7 +68,7 @@ en:
   layouts:
     footer:
       description: "The application is designed to create, manage, and run various tests"
-      link: "Educational project in an online school Thinknetica"
+      link: "Educational project in an online school"
     admin:
       panel: "Admin Panel | TestGuru"
     navigation:
