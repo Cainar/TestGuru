@@ -32,6 +32,7 @@ gem 'jbuilder', '~> 2.7'
 # AUTH
 gem 'devise', '~> 4.0'
 gem 'devise-i18n'
+gem "recaptcha", require: "recaptcha/rails"
 
 # LOCALIZATION
 gem 'railties'
