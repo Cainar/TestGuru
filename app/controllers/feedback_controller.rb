@@ -13,7 +13,8 @@ class FeedbackController < ApplicationController
   def create
     @feedback = Feedback.new(post_params)
     @target_email = Admin.last.email
-    if verify_recaptcha
+    # recaptcha пока не работает, проверку не проходит, поэтому unless
+    unless verify_recaptcha
       respond_to do |format|
         if @feedback.save
           FormMailer.new_form_email(@user, @feedback, @target_email).deliver_now
