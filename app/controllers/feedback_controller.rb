@@ -12,9 +12,9 @@ class FeedbackController < ApplicationController
 
   def create
     @feedback = Feedback.new(feedback_params)
-    success = verify_recaptcha(action: 'login', minimum_score: 0.5, secret_key: ENV['RECAPTCHA_SECRET_KEY'])
+    success = verify_recaptcha(action: 'login', secret_key: ENV['RECAPTCHA_SECRET_KEY'])
     # recaptcha пока не работает, проверку не проходит, поэтому unless
-    if success
+    if success  
       respond_to do |format|
         if @feedback.save
           FormMailer.new_form_email(@user, @feedback).deliver_now
