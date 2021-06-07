@@ -38,7 +38,7 @@
             <a href="/author.html" class="text-reset"><%= t('.author') %></a>
           </p>
           <p>
-            <a href="/feedback" class="text-reset"><%= t('.feedback') %></a>
+            <%= link_to t('.feedback'), new_feedback_path, class: 'text-reset' %>
           </p>
         </div>
         <!-- Grid column -->
