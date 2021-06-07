@@ -26,7 +26,7 @@
      <%= form.text_area :message, placeholder: "Message", class: 'form-control', required: true %>
   </div>
   <br>
-  <%= recaptcha_v3(action: 'login', site_key: ENV['RECAPTCHA_SITE_KEY']) %>
+  <%= recaptcha_tags %>
   <br>
   <%= form.submit :Send %>
 <% end %>
