@@ -2,7 +2,7 @@
 <h1>Форма отправки сообщений</h1>
 <p><%= notice %></p>
 <p><%= alert %></p>
-<%= form_with model: feedback, local: true, url: feedback_path do |form| %>
+<%= form_with model: feedback, local: true, url: feedback_index_path do |form| %>
   <% if feedback.errors.any? %>
   <div id="error_explanation">
      <h2><%= pluralize(feedback.errors.count, "error") %> prohibited this post from being saved:</h2>
