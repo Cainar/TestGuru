@@ -1,12 +1,12 @@
 class FeedbackController < ApplicationController
   before_action :set_feedback, only: [:destroy]
-  before_action :set_user, only: %i[create landing]
+  before_action :set_user, only: %i[create new]
 
   def index
     @feedbacks = Feedback.all
   end
 
-  def landing
+  def new
     @feedback = Feedback.new
   end
 
@@ -24,13 +24,6 @@ class FeedbackController < ApplicationController
       respond_to do |format|
         format.html { redirect_to '/', alert: "Failure. feedback wasn't created." }
       end
-    end
-  end
-
-  def destroy
-    @feedback.destroy
-    respond_to do |format|
-      format.html { redirect_to feedbacks_url, notice: 'feedback was successfully destroyed.' }
     end
   end
 
