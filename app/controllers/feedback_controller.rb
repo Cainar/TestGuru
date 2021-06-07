@@ -12,7 +12,7 @@ class FeedbackController < ApplicationController
 
   def create
     @feedback = Feedback.new(feedback_params)
-    success = verify_recaptcha(action: 'login', secret_key: ENV['RECAPTCHA_SECRET_KEY'])
+    success = verify_recaptcha(action: 'login', secret_key: ENV['RECAPTCHA_SITE_KEY'])
     # recaptcha пока не работает, проверку не проходит, поэтому unless
     if success  
       respond_to do |format|
