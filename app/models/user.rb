@@ -14,6 +14,9 @@ class User < ApplicationRecord
   has_many :test_passages
   has_many :tests, through: :test_passages
 
+  has_many :user_badges
+  has_many :badges, through: :user_badges
+
   def list_tests_by_level(level)
     tests.by_level(level)
   end

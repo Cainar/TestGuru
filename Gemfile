@@ -46,6 +46,10 @@ gem 'bootstrap', '~> 5.0.0.beta2'
 gem 'sprockets', '~> 4.0'
 gem 'octicons_helper'
 
+# interactor
+gem 'interactor', "~> 3.0"
+gem "interactor-rails", "~> 2.0"
+
 #NETWORKING
 # gem 'faraday'
 gem "octokit", "~> 4.0"

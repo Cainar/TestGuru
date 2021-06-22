@@ -11,7 +11,34 @@ class TestPassagesController < ApplicationController
 
   def update
     @test_passage.accept!(params[:answer_ids])
+    @user = @test_passage.user
     if @test_passage.completed?
+      @test_passage.update(rate: @test_passage.success_rate)
+      CheckRule.call(test_passage: @test_passage)
+      badge_result = BadgeRule.result
+
+      puts "+++++++++++++++++++++++++"
+      puts "+++++++++++++++++++++++++"
+      puts "+++++++++++++++++++++++++"
+      puts "+++++++++++++++++++++++++"
+      puts "+++++++++++++++++++++++++"
+      puts "+++++++++++++++++++++++++"
+      puts badge_result
+
+      badge_result.each do |achievement, result|
+        @badge = Badge.where(name: achievement::NAME)
+        puts @badge
+        puts achievement
+        puts result
+        if result
+          if !@user.badges.include? achievement
+            @achievement = @user.badges.push(@badge)
+          elsif @user.badges.include? achievement && achievement::MULTIPLY
+            @achievement = @user.badges.push(@badge)
+          end
+        end
+      end
+                                                     
       TestsMailer.completed_test(@test_passage).deliver_now
       redirect_to result_test_passage_path(@test_passage)
     else
