@@ -1,0 +1,23 @@
+// Place all the styles related to the user_badges controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.img-center {
+  margin: auto;
+  display: block;
+}
+
+.img-gray {
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  filter: grayscale(100%);
+  filter: gray; /* IE 6-9 */
+}
+
+.achievement{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}

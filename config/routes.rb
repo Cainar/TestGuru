@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'user_badge/index'
+  
   root 'tests#index'
 
   devise_for :users, path: :gurus, path_names: { sign_in: :login, sign_out: :logout},
@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
+    resources :badges
     resources :tests do
       patch :update_inline, on: :member
 
@@ -30,5 +31,6 @@ Rails.application.routes.draw do
   end
   
   resources :feedback, only: [:new, :create]
+  get :achievements, action: :index, controller: 'user_badges'
 end
 

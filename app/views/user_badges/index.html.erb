@@ -1,0 +1,15 @@
+<h1><%= t('.achievements') %></h1>
+
+<% if @user_badges.present? %>
+  <%= content_tag :div, class: 'row'  do %>
+    <%= render partial: 'user_badge', collection: @user_badges %>
+  <% end %>
+<% end %>
+
+<h2><%= t('.available_badges') %></h2>
+
+<% if @badges.present? %>
+  <%= content_tag :div, class: 'row'  do %>
+    <%= render partial: 'badge', collection: @badges %>
+  <% end %>
+<% end %>

@@ -14,26 +14,18 @@ class TestPassagesController < ApplicationController
     @user = @test_passage.user
     if @test_passage.completed?
       @test_passage.update(rate: @test_passage.success_rate)
+      
       CheckRule.call(test_passage: @test_passage)
       badge_result = BadgeRule.result
-
-      puts "+++++++++++++++++++++++++"
-      puts "+++++++++++++++++++++++++"
-      puts "+++++++++++++++++++++++++"
-      puts "+++++++++++++++++++++++++"
-      puts "+++++++++++++++++++++++++"
-      puts "+++++++++++++++++++++++++"
-      puts badge_result
-
       badge_result.each do |achievement, result|
         @badge = Badge.where(name: achievement::NAME)
         puts @badge
-        puts achievement
+        puts achievement::MULTIPLY
         puts result
         if result
-          if !@user.badges.include? achievement
+          if @user.badges.where(name: achievement::NAME).count == 0
             @achievement = @user.badges.push(@badge)
-          elsif @user.badges.include? achievement && achievement::MULTIPLY
+          elsif achievement::MULTIPLY
             @achievement = @user.badges.push(@badge)
           end
         end

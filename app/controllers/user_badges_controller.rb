@@ -1,8 +1,9 @@
-class UserBadgeController < ApplicationController
+class UserBadgesController < ApplicationController
   before_action :set_user, only: %i[index]
 
   def index
-    badges = @user.badges
+    @user_badges = @user.badges
+    @badges = Badge.all
   end
 
 
